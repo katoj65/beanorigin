@@ -103,7 +103,7 @@ class="impact-text" textWrap="true" />
 </FormattedString>
 </Label>
 
-<Label text="Send a tip, donation, or plant a tree through the app."
+<Label text="Buy carbon credit or plant a tree through the app."
 class="card-subtitle" textWrap="true" />
 </StackLayout>
 </StackLayout>

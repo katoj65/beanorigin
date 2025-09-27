@@ -16,8 +16,8 @@
 textWrap="true" class="intro" />
 
 <!-- Scanner Placeholder -->
-<StackLayout class="scanner-box" verticalAlignment="center" horizontalAlignment="center">
-<Label text="📷" class="scanner-icon" />
+<StackLayout class="scanner-box" verticalAlignment="center" horizontalAlignment="center" padding="10">
+<Label text.decode="&#xf02a;" class="scanner-icon fas icon" fontSize="220" color="black"/>
 <Label text="QR Scanner will appear here" class="scanner-text" />
 </StackLayout>
 
