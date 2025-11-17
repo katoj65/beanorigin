@@ -1,9 +1,16 @@
 <script>
+
 import CartCheckoutPage from './CartCheckoutPage.vue';
 export default {
-components:{
+data(){return{
+products:[
+{item:'',price:'',qtty:''}
+],
 
-},
+
+
+}},
+components:{},
 
 methods:{
 checkoutNav(){
@@ -41,48 +48,23 @@ this.$navigateTo(CartCheckoutPage);
 
 <!-- Cart Item 1 -->
 <GridLayout columns="80, *, 60" class="cart-item" rows="auto">
-<Image src="~/assets/logo.png" stretch="aspectFit" width="80" height="80" col="0" />
+<Image src="~/assets/product1.jpg" stretch="aspectFit" width="80" height="80" col="0" />
 <StackLayout col="1" verticalAlignment="center" paddingLeft="12">
-<Label text="Ethiopian Yirgacheffe" class="cart-item-title" />
-<Label text="Seller: Farmer Ayele" class="cart-item-seller" />
+<Label text="Original Gold" class="cart-item-title" />
+<Label text="Seller: Joshua Kato" class="cart-item-seller" />
 <Label text="$18 / 250g" class="cart-item-price" />
 </StackLayout>
 <StackLayout col="2" verticalAlignment="center" horizontalAlignment="center" spacing="6">
-<Label text="-" class="qty-btn" />
-<Label text="1" class="qty-label" />
-<Label text="+" class="qty-btn" />
+<Label class="qty-label">
+<FormattedString>
+<Span text="1" class="qtty" padding="20"/>
+</FormattedString>
+</Label>
 </StackLayout>
 </GridLayout>
 
-<!-- Cart Item 2 -->
-<GridLayout columns="80, *, 60" class="cart-item" rows="auto">
-<Image src="~/assets/logo.png" stretch="aspectFit" width="80" height="80" col="0" />
-<StackLayout col="1" verticalAlignment="center" paddingLeft="12">
-<Label text="Colombian Supremo" class="cart-item-title" />
-<Label text="Seller: Juan Martinez" class="cart-item-seller" />
-<Label text="$16 / 250g" class="cart-item-price" />
-</StackLayout>
-<StackLayout col="2" verticalAlignment="center" horizontalAlignment="center" spacing="6">
-<Label text="-" class="qty-btn" />
-<Label text="2" class="qty-label" />
-<Label text="+" class="qty-btn" />
-</StackLayout>
-</GridLayout>
 
-<!-- Cart Item 3 -->
-<GridLayout columns="80, *, 60" class="cart-item" rows="auto">
-<Image src="~/assets/logo.png" stretch="aspectFit" width="80" height="80" col="0" />
-<StackLayout col="1" verticalAlignment="center" paddingLeft="12">
-<Label text="Kenyan AA" class="cart-item-title" />
-<Label text="Seller: Farmer Wanjiku" class="cart-item-seller" />
-<Label text="$20 / 250g" class="cart-item-price" />
-</StackLayout>
-<StackLayout col="2" verticalAlignment="center" horizontalAlignment="center" spacing="6">
-<Label text="-" class="qty-btn" />
-<Label text="1" class="qty-label" />
-<Label text="+" class="qty-btn" />
-</StackLayout>
-</GridLayout>
+
 
 </StackLayout>
 </ScrollView>
@@ -153,5 +135,14 @@ font-size: 16;
 font-weight: bold;
 padding: 12;
 border-radius: 10;
+}
+
+.qtty{
+padding:20;
+font-weight: bold;
+border-radius: 6;
+background-color: #6B4226;
+color: #fff;
+text-align: center;
 }
 </style>

@@ -2,11 +2,33 @@
 <script>
 import CartPage from './CartPage.vue';
 import FarmerStoryPage from './FarmerStoryPage.vue';
-
+import HeaderCoffeeShop from './template/HeaderCoffeeShop.vue';
 
 
 export default {
+components:{
+HeaderCoffeeShop
+},
 data(){return{
+item:1,
+product:{
+id:1,
+name:'Nescafe Classic Coffee',
+description:'This coffee supported 1 farmer and offset 2kg of CO₂. Premium quality with fruity notes.',
+qtty:'250g',
+price:'$18',
+flavor:'Floral aroma with citrus notes, smooth chocolate finish.',
+farmer_story:'Farmer Joshua has been growing coffee in the highlands of Uganda for over 15 years. His farm focuses on sustainable practices and high-quality Arabica beans.',
+reviews:[
+{rating:3,comment:''},
+{rating:3,comment:''},
+
+
+
+],
+
+}
+
 
 }},
 
@@ -18,6 +40,17 @@ this.$navigateTo(CartPage);
 
 farmerStoryNav(){
 this.$navigateTo(FarmerStoryPage);
+},
+
+//quantity
+qttyPlus(){
+this.item=this.item+1;
+},
+
+qttyMinus(){
+if(this.item>1){
+this.item=this.item-1;
+}
 }
 
 
@@ -36,8 +69,8 @@ this.$navigateTo(FarmerStoryPage);
 <GridLayout rows="auto, *, auto">
 
 <!-- Header -->
-<StackLayout row="0" class="header p-4">
-<Label text="Product Details" class="header-title" />
+<StackLayout row="0">
+<header-coffee-shop/>
 </StackLayout>
 
 <!-- Product Details -->
@@ -45,33 +78,83 @@ this.$navigateTo(FarmerStoryPage);
 <StackLayout class="product-details" spacing="16" padding="10">
 
 <!-- Product Image -->
-<Image src="~/assets/product1.jpg" stretch="aspectFit" height="220" marginTop="25"/>
+<Image src="~/assets/images/img1.jpg" stretch="aspectFit" height="220" marginTop="25"/>
+
+
+
+
+
+
+<!-- Quantity Selector -->
+<GridLayout columns="auto, *, auto" class="quantity-selector" verticalAlignment="center">
+<Label text.decode="&#xf056;" class="qty-btn fas icon" col="0" @tap="qttyMinus" fontSize="30" />
+<Label :text="item" class="qty-label" col="1" textAlignment="center" fontSize="20" fontWeight="bold" color="#6B4226"/>
+<Label text.decode="&#xf055;" class="qty-btn fas icon" col="2" @tap="qttyPlus" fontSize="30"/>
+</GridLayout>
+
+
+
+
+
+
 
 <!-- Product Info -->
-<Label text="Original Gold" class="product-title" marginTop="20"/>
-<Label text="Seller: Joshua Kato" class="product-seller" />
-<Label text="$18 / 250g" class="product-price" />
+<Label :text="product.name" class="product-title" marginTop="20"/>
+
+
+
+<!-- <Label text="Seller: Joshua Kato" class="product-seller" /> -->
+<Label :text="product.price+'/'+product.qtty" class="product-price" />
+
+
 
 <!-- Product Impact / Description -->
-<Label text="This coffee supported 1 farmer and offset 2kg of CO₂. Premium quality with fruity notes."
-    class="product-description" textWrap="true" padding="5"/>
+<Label :text="product.description" class="product-description" textWrap="true" padding="20"/>
+
+
+
 
 <!-- Farmer Story -->
-<StackLayout class="section" padding="5" @tap="farmerStoryNav">
-<Label text="Farmer Story" class="section-title" />
-<Label text="Farmer Joshua has been growing coffee in the highlands of Uganda for over 15 years. His farm focuses on sustainable practices and high-quality Arabica beans."
-        class="section-text" textWrap="true" />
+<StackLayout class="section" padding="20" @tap="farmerStoryNav">
+
+<Label class="section-title">
+<FormattedString>
+<Span text.decode="&#xf7b6;" color="#6B4226" paddingRight="10" class="fas icon"/><Span text=" Flavor Note"/>
+</FormattedString>
+</Label>
+<Label :text="product.flavor" class="section-text" textWrap="true" />
+
+
+
+
+
+
+<Label class="section-title"  marginTop="20">
+<FormattedString>
+<Span text.decode="&#xf007;" color="#6B4226" paddingRight="10" class="fas icon"/><Span text=" Farmer's Story"/>
+</FormattedString>
+</Label>
+
+
+
+
+<Label :text="product.farmer_story" class="section-text" textWrap="true" />
 </StackLayout>
 
+
+
+
 <!-- Product Reviews -->
-<StackLayout class="section" padding="5">
+<StackLayout class="section" padding="20">
 <Label text="Reviews" class="section-title" />
 
+
 <!-- Review 1 -->
-<StackLayout class="review" spacing="4">
+<StackLayout class="review" spacing="4" marginBottom="2">
 <Label text="⭐⭐⭐⭐⭐" class="review-rating" />
 <Label text="Absolutely love the fruity notes and aroma. Highly recommended!" class="review-text" textWrap="true" />
 </StackLayout>
+
 
 <!-- Review 2 -->
 <StackLayout class="review" spacing="4">
@@ -81,19 +164,20 @@ this.$navigateTo(FarmerStoryPage);
 
 </StackLayout>
 
-<!-- Quantity Selector -->
-<GridLayout columns="auto, *, auto" class="quantity-selector" verticalAlignment="center">
-<Label text="-" class="qty-btn" col="0" />
-<Label text="1" class="qty-label" col="1" textAlignment="center" />
-<Label text="+" class="qty-btn" col="2" />
-</GridLayout>
-
 </StackLayout>
 </ScrollView>
 
+
+
+
 <!-- Add to Cart Button -->
 <StackLayout row="2" class="p-4">
-<Button text="Add to Cart" class="btn-add-cart" @tap="navCart" />
+<Button text="Add to Cart" class="btn-add-cart" @tap="navCart">
+<FormattedString>
+<Span class="icon fas" text.decode="&#xf07a;"/>
+<Span text=" Add to Cart"/>
+</FormattedString>
+</Button>
 </StackLayout>
 
 </GridLayout>
@@ -183,19 +267,19 @@ margin-top: 12;
 justify-content: center;
 align-items: center;
 height: 40;
+border:solid thin red;
 }
+
 .qty-btn {
-width: 36;
-height: 36;
+width: 50;
+height: 50;
 font-weight: bold;
 border-radius: 6;
-background-color: #6B4226;
-color: #fff;
+color:#6B4226;
 text-align: center;
 vertical-align: middle;
 }
 .qty-label {
-font-size: 16;
 width: 50;
 text-align: center;
 }

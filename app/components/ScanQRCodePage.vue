@@ -23,9 +23,13 @@ textWrap="true" class="intro" />
 
 <!-- Example Result Placeholder -->
 <StackLayout class="result-box">
-<Label text="Example Result:" class="result-title" />
-<Label text="Farmer: Ayele from Ethiopia" class="result-text" />
-<Label text="Impact: Fair price paid, offset 2kg CO₂" class="result-text" />
+<Label text="Scanning " class="result-title" />
+<Label text="Farmer details: " class="result-text" />
+<Label text="Tracability & Compliance:" class="result-text" />
+<Label text="Impact:" class="result-text" />
+<Label text="Fair pricing: " class="result-text" />
+<Label text="Certificate: " class="result-text" />
+
 </StackLayout>
 
 </StackLayout>

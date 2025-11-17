@@ -33,3 +33,15 @@ marginLeft="8"
 verticalAlignment="center"/>
 </GridLayout>
 </template>
+
+<style scoped>
+.search-input {
+    border-width: 1;
+    border-color: #ffffff;
+    border-radius: 10;
+    padding: 8;
+    font-size: 14;
+    background-color: #ffffff;
+    margin-top: 8;
+    }
+</style>

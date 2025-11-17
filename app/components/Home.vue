@@ -1,6 +1,7 @@
 <script>
 import Dashboard from './Dashboard.vue';
 import Register from './template/Register.vue';
+import DashboardBuyer from './DashboardBuyer.vue';
 export default {
 components:{
 Register
@@ -17,7 +18,7 @@ methods: {
 
 
 navHome(){
-this.$navigateTo(Dashboard);
+this.$navigateTo(DashboardBuyer);
 },
 
 screens(){

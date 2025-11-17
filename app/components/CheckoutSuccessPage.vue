@@ -45,7 +45,7 @@ fontSize="14"  textAlignment="center" marginBottom="20" color="#ffff" textWrap="
 </GridLayout>
 <GridLayout columns="*, auto" marginBottom="8">
 <Label text="Total Paid" fontSize="14" color="#555" col="0"/>
-<Label text="$55" fontSize="14" fontWeight="bold" color="#444" col="1"/>
+<Label text="$20" fontSize="14" fontWeight="bold" color="#444" col="1"/>
 </GridLayout>
 <GridLayout columns="*, auto" marginBottom="8">
 <Label text="Payment Method" fontSize="14" color="#555" col="0"/>
@@ -53,7 +53,7 @@ fontSize="14"  textAlignment="center" marginBottom="20" color="#ffff" textWrap="
 </GridLayout>
 <GridLayout columns="*, auto">
 <Label text="Date" fontSize="14" color="#555" col="0"/>
-<Label text="21 Sept 2025" fontSize="14" fontWeight="bold" color="#444" col="1"/>
+<Label text="14 Nov 2025" fontSize="14" fontWeight="bold" color="#444" col="1"/>
 </GridLayout>
 </StackLayout>
 

@@ -43,79 +43,80 @@ this.$navigateTo(ProductPage);
 
 <!-- Product Grid (10 products) -->
 <ScrollView row="1">
+
 <GridLayout columns="*, *" rows="auto, auto, auto, auto, auto" rowSpacing="16" columnSpacing="16" class="p-5">
   <!-- Row 1 -->
   <StackLayout class="product-card" col="0" row="0" @tap="navCart">
-    <Image src="~/assets/logo.png" stretch="aspectFit" height="120"/>
-    <Label text="Ethiopian Yirgacheffe" class="product-title" />
-    <Label text="Seller: Farmer Ayele" class="product-seller" />
+    <Image src="~/assets/product1.jpg" stretch="aspectFit" height="120"/>
+    <Label text="Origin Gold" class="product-title" />
+    <Label text="Seller: Nile Roast" class="product-seller" />
     <Label text="$18 / 250g" class="product-price" />
   </StackLayout>
 
   <StackLayout class="product-card" col="1" row="0" @tap="navCart">
-    <Image src="~/assets/logo.png" stretch="aspectFit" height="120"/>
-    <Label text="Colombian Supremo" class="product-title" />
-    <Label text="Seller: Juan Martinez" class="product-seller" />
+    <Image src="~/assets/product2.jpg" stretch="aspectFit" height="120"/>
+    <Label text="Bean Origin Signature" class="product-title" />
+    <Label text="Seller: Nile Roast" class="product-seller" />
     <Label text="$16 / 250g" class="product-price" />
   </StackLayout>
 
   <!-- Row 2 -->
   <StackLayout class="product-card" col="0" row="1" >
-    <Image src="~/assets/logo.png" stretch="aspectFit" height="120"/>
-    <Label text="Kenyan AA" class="product-title" />
-    <Label text="Seller: Farmer Wanjiku" class="product-seller" />
+    <Image src="~/assets/product3.jpg" stretch="aspectFit" height="120"/>
+    <Label text="Mount Elgon Reserve" class="product-title" />
+    <Label text="Seller: Nile Roast" class="product-seller" />
     <Label text="$20 / 250g" class="product-price" />
   </StackLayout>
 
   <StackLayout class="product-card" col="1" row="1">
-    <Image src="~/assets/logo.png" stretch="aspectFit" height="120"/>
-    <Label text="Sumatra Mandheling" class="product-title" />
-    <Label text="Seller: Farmer Rahmat" class="product-seller" />
+    <Image src="~/assets/product4.jpg" stretch="aspectFit" height="120"/>
+    <Label text="Bugisu Heritage" class="product-title" />
+    <Label text="Seller: Bugisu Heritage Farm" class="product-seller" />
     <Label text="$19 / 250g" class="product-price" />
   </StackLayout>
 
   <!-- Row 3 -->
   <StackLayout class="product-card" col="0" row="2">
-    <Image src="~/assets/logo.png" stretch="aspectFit" height="120"/>
-    <Label text="Guatemalan Antigua" class="product-title" />
-    <Label text="Seller: Maria Lopez" class="product-seller" />
+    <Image src="~/assets/product1.jpg" stretch="aspectFit" height="120"/>
+    <Label text="GreenCup" class="product-title" />
+    <Label text="Seller: GreenCup" class="product-seller" />
     <Label text="$17 / 250g" class="product-price" />
   </StackLayout>
 
   <StackLayout class="product-card" col="1" row="2">
-    <Image src="~/assets/logo.png" stretch="aspectFit" height="120"/>
-    <Label text="Brazilian Santos" class="product-title" />
-    <Label text="Seller: Paulo Silva" class="product-seller" />
+    <Image src="~/assets/product1.jpg" stretch="aspectFit" height="120"/>
+    <Label text="EcoBean" class="product-title" />
+    <Label text="Seller: EcoBean" class="product-seller" />
     <Label text="$15 / 250g" class="product-price" />
   </StackLayout>
 
   <!-- Row 4 -->
   <StackLayout class="product-card" col="0" row="3">
-    <Image src="~/assets/logo.png" stretch="aspectFit" height="120"/>
-    <Label text="Honduran Marcala" class="product-title" />
-    <Label text="Seller: Ana Gomez" class="product-seller" />
+    <Image src="~/assets/product2.jpg" stretch="aspectFit" height="120"/>
+    <Label text="Farm2Future" class="product-title" />
+    <Label text="Seller: Farm2Future" class="product-seller" />
     <Label text="$18 / 250g" class="product-price" />
   </StackLayout>
 
   <StackLayout class="product-card" col="1" row="3">
-    <Image src="~/assets/logo.png" stretch="aspectFit" height="120"/>
-    <Label text="Tanzanian Peaberry" class="product-title" />
-    <Label text="Seller: John Mkapa" class="product-seller" />
+    <Image src="~/assets/product3.jpg" stretch="aspectFit" height="120"/>
+    <Label text="Morning Origin" class="product-title" />
+    <Label text="Seller: Morning Origin" class="product-seller" />
     <Label text="$19 / 250g" class="product-price" />
   </StackLayout>
 
   <!-- Row 5 -->
   <StackLayout class="product-card" col="0" row="4">
-    <Image src="~/assets/logo.png" stretch="aspectFit" height="120"/>
+    <Image src="~/assets/product4.jpg" stretch="aspectFit" height="120"/>
     <Label text="Rwandan Bourbon" class="product-title" />
     <Label text="Seller: Claudine Uwimana" class="product-seller" />
     <Label text="$21 / 250g" class="product-price" />
   </StackLayout>
 
   <StackLayout class="product-card" col="1" row="4">
-    <Image src="~/assets/logo.png" stretch="aspectFit" height="120"/>
-    <Label text="Nicaraguan Maragogipe" class="product-title" />
-    <Label text="Seller: Carlos Rivera" class="product-seller" />
+    <Image src="~/assets/product1.jpg" stretch="aspectFit" height="120"/>
+    <Label text="Nile Roast" class="product-title" />
+    <Label text="Nile Roast" class="product-seller" />
     <Label text="$22 / 250g" class="product-price" />
   </StackLayout>
 </GridLayout>
