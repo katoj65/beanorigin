@@ -1,8 +1,18 @@
 <script>
 import AppLayout from './template/AppLayout.vue';
+import CompleteTransactionPage from './CompleteTransactionPage.vue';
 export default {
 components:{
 AppLayout
+},
+
+
+
+
+methods:{
+completeTransactionNav(){
+this.$navigateTo(CompleteTransactionPage);
+}
 }
 
 
@@ -122,7 +132,7 @@ AppLayout
 
 
 <template #footer>
-<Button text="Add to Cart" class="btn-add-cart">
+<Button text="Add to Cart" class="btn-add-cart" @tap="completeTransactionNav">
 <FormattedString>
 <!-- <Span class="icon fas" text.decode="&#xf07a;"/> -->
 <Span text=" Checkout"/>

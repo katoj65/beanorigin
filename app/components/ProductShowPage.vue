@@ -1,7 +1,8 @@
 <script>
-import AppLayout from './AppLayout.vue';
-import ShoppingCartPage from '../ShoppingCartPage.vue';
-import FarmerStoryPage from '../FarmerStoryPage.vue';
+import AppLayout from './template/AppLayout.vue';
+import ShoppingCartPage from './ShoppingCartPage.vue';
+import FarmerStoryPage from './FarmerStoryPage.vue';
+
 export default {
 components:{
 AppLayout,
@@ -50,7 +51,12 @@ qttyMinus(){
 if(this.item>1){
 this.item=this.item-1;
 }
-}
+},
+
+
+
+
+
 
 }
 

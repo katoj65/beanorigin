@@ -1,137 +1,227 @@
+<script>
+import PlantTreePage from './PlantTreePage.vue';
+import AppLayout from './template/AppLayout.vue';
+import GiveTipPage from './GiveTipPage.vue';
+
+export default {
+components:{
+AppLayout
+},
+
+data(){
+return{
+products:[
+{name:'Arabica Coffee (Washed)', description:''},
+{name:'Arabica Coffee (Natural)', description:''},
+{name:'Robusta Coffee', description:''},
+{name:'Cocoa Beans', description:''},
+],
+
+
+}},
+
+methods:{
+plantTreeNav(){
+this.$navigateTo(PlantTreePage);
+},
+
+tipNav(){
+this.$navigateTo(GiveTipPage);
+}
+
+
+
+
+}
+
+
+
+
+
+}
+</script>
 <template>
-<Page class="page" actionBarHidden="true">
-<GridLayout rows="auto, *">
-<!-- Header -->
-<StackLayout row="0" backgroundColor="#6B4226" padding="15" borderBottomLeftRadius="20" borderBottomRightRadius="20">
-<Label text="Farmer's Story" class="header-title" textAlignment="center"/>
-</StackLayout>
-
-<!-- Content -->
-<ScrollView row="1">
-<StackLayout class="p-5" spacing="16">
-
-<!-- Product Overview -->
-<!-- <StackLayout class="card">
-<Image src="~/assets/item1.jpg" stretch="aspectFit" height="140" style="border-radius:20px;"/>
-<Label text="Instant Coffee" class="product-title" textAlignment="center"/>
-<Label text="$18 / 250g" class="product-price" textAlignment="center"/>
-<Label text="Roast: Medium • Harvest: 2025" class="product-meta" textAlignment="center"/>
-</StackLayout> -->
-
-<!-- Farmer Story -->
-<StackLayout class="card">
-<!-- <Label text="Farmer" class="card-title"/> -->
-<StackLayout orientation="horizontal" spacing="12" paddingRight="10">
-<Label text.decode="&#xf2bd;" class="fas icon" fontSize="40" color="#6B4226"></Label>
-<StackLayout>
-<Label text="Joshua Kato" class="farmer-name" style="padding-left:35px;"/>
-<Label text="From Mukono, Uganda. Kato has been cultivating coffee for 20 years, continuing his family’s tradition." class="farmer-story" textWrap="true" style="padding-left:35px;"/>
-</StackLayout>
-</StackLayout>
-<Label text="“This coffee helps send my children to school.”" class="farmer-quote" textWrap="true"/>
-</StackLayout>
-
-<!-- Origin & Location -->
-<StackLayout class="card">
-<Label text="📍 Origin & Location" class="card-title"/>
-<Image src="~/assets/map.png" height="120" stretch="aspectFill" borderRadius="10"/>
-<Label text="Region: Mukono, Uganda • Altitude: 1900m" class="location-info" textWrap="true"/>
-</StackLayout>
-
-<!-- Impact & Sustainability -->
-<StackLayout class="card">
-<Label text="🌱 Impact & Sustainability" class="card-title"/>
-<Label text="✔️ Farmer received 30% above market price" class="impact-item"/>
-<Label text="✔️ 2kg of CO₂ offset per bag" class="impact-item"/>
-<Label text="✔️ Organic & Fair Trade Certified" class="impact-item"/>
-</StackLayout>
-
-<!-- Flavor Profile -->
-<StackLayout class="card">
-<Label text="☕ Flavor Notes" class="card-title"/>
-<Label text="Floral aroma with citrus notes, smooth chocolate finish." class="flavor" textWrap="true"/>
-<Label text="Best brewed with V60 or French Press." class="brew" textWrap="true"/>
-</StackLayout>
-
-<!-- Actions -->
-<StackLayout class="actions" spacing="12">
-<Button text="🛒 Add to Cart" class="btn"/>
-<Button text="💸 Buy Carbon Credit" class="btn"/>
-</StackLayout>
-
-</StackLayout>
-</ScrollView>
+<app-layout>
+<template #header>
+<GridLayout columns="*, auto" verticalAlignment="center" paddingLeft="5" paddingRight="5" >
+<Label text="Farmer's Story" class="header-title" col="0" fontSize="20"/>
+<Label class="fas icon" text.decode="&#xf0c9;" col="1" color="#fff" />
 </GridLayout>
-</Page>
 </template>
 
-<style scoped>
-.page { background-color: #fffaf3; }
+<template #content>
+<StackLayout>
 
-/* Header */
-.header-title {
-font-size: 22;
-font-weight: bold;
-color: #ffffff;
-}
+<StackLayout backgroundColor="#ffffff" padding="20" borderRadius="16" marginTop="0" orientation="horizontal">
 
-/* Cards */
-.card {
-background-color: white;
-border-radius: 14;
-padding: 16;
-shadow-color: #000;
-shadow-opacity: 0.08;
-shadow-radius: 6;
-}
-.card-title {
-font-size: 18;
-font-weight: bold;
-color: #6B4226;
-margin-bottom: 8;
-}
+<Image src="~/assets/icon/user.png"
+width="90"
+height="90"
+borderRadius="50"
+stretch="aspectFill" />
 
-/* Product */
-.product-title { font-size: 18; font-weight: bold; color: #6B4226; margin-top: 8; }
-.product-price { font-size: 16; font-weight: bold; color: #2f855a; margin-top: 4; }
-.product-meta { font-size: 14; color: #555; margin-top: 2; }
+<StackLayout marginLeft="16" verticalAlignment="center">
 
-/* Farmer */
-.farmer-name { font-size: 14; font-weight: bold; color: #333; }
-.farmer-story { font-size: 13; color: #555; }
-.farmer-quote { font-size: 14; font-style: italic; color: #2f855a; margin-top: 8; }
+<Label text="Joshua Kato"
+fontSize="20"
+fontWeight="bold"
+color="#3A2E2A"/>
 
-/* Location */
-.location-info { font-size: 14; color: #444; margin-top: 8; }
+<Label text="Coffee Farmer • 12 Years"
+fontSize="14"
+color="#7a706c"
+marginTop="4"/>
 
-/* Impact */
-.impact-item { font-size: 14; color: #2f855a; margin-top: 4; }
+<Label text="Kaliro, Uganda"
+fontSize="14"
+color="#6B4226"
+fontWeight="bold"
+marginTop="6"/>
+</StackLayout>
+</StackLayout>
 
-/* Flavor */
-.flavor { font-size: 14; color: #333; }
-.brew { font-size: 13; color: #555; margin-top: 4; }
 
-/* Actions */
-.actions { margin-top: 12; }
-.btn {
-background-color: #6B4226;
-color: #fff;
-font-size: 16;
-font-weight: bold;
-padding: 12;
-border-radius: 10;
-}
-.btn-outline {
-border-width: 1;
-border-color: #6B4226;
-color: #6B4226;
-font-size: 16;
-font-weight: bold;
-padding: 12;
-border-radius: 10;
-background-color: transparent;
-}
 
-/* Spacing */
-.p-5 { padding: 20; }
-</style>
+
+<!-- STORY SECTION -->
+<StackLayout marginTop="20" padding="10">
+
+<Label text="His Journey"
+    fontSize="20"
+    color="#3A2E2A"
+    fontWeight="bold"
+    marginBottom="10"/>
+
+<Label text="Sarah is a third-generation coffee farmer who has dedicated her life to cultivating high-quality Arabica beans in the hills of Eastern Uganda. Her farm thrives on sustainable practices passed down through her parents and grandparents."
+    fontSize="15"
+    color="#4b443f"
+    textWrap="true"
+    marginBottom="10"/>
+
+<Label text="Through Bean Origin, her coffee is traceable from farm to cup, giving buyers confidence in quality while ensuring she earns a fair price for her work."
+    fontSize="15"
+    color="#4b443f"
+    textWrap="true"
+    marginBottom="10"/>
+</StackLayout>
+
+
+
+
+<!-- FARM DETAILS -->
+<StackLayout backgroundColor="#ffffff"
+        borderRadius="16"
+        padding="20"
+        marginTop="10">
+
+<Label text="Farm Details"
+    fontSize="18"
+    fontWeight="bold"
+    color="#3A2E2A"
+    marginBottom="12"/>
+
+<GridLayout rows="auto, auto, auto" columns="auto, *" rowGap="10">
+
+<Label row="0" col="0" text="🌱" fontSize="22" />
+<Label row="0" col="1" text="Organic, pesticide-free" fontSize="15" color="#4b443f" />
+
+<Label row="1" col="0" text="🌄" fontSize="22" />
+<Label row="1" col="1" text="Altitude: 1800m" fontSize="15" color="#4b443f" />
+
+<Label row="2" col="0" text="☕" fontSize="22" />
+<Label row="2" col="1" text="Variety: Arabica SL14" fontSize="15" color="#4b443f" />
+
+</GridLayout>
+</StackLayout>
+
+
+
+
+<StackLayout backgroundColor="#ffffff" borderRadius="16" padding="20" marginTop="10">
+<Label text="Farm Products" fontSize="18" fontWeight="bold" color="#3A2E2A" marginBottom="12"/>
+<StackLayout>
+<Label :text="i.name" fontSize="15" v-for="(i,key) in products" :key="key" />
+</StackLayout>
+</StackLayout>
+
+
+
+
+
+
+<!-- SUPPORT BUTTON -->
+<GridLayout
+columns="*, *"
+rows="auto"
+marginTop="20"
+marginLeft="16"
+marginRight="16"
+columnGap="12">
+
+<!-- Tip a Farmer -->
+<StackLayout
+    col="0"
+    padding="16"
+    backgroundColor="#6B4226"
+    borderRadius="10"
+    horizontalAlignment="stretch"
+    verticalAlignment="center"
+    width="48%"
+    @tap="tipNav">
+
+    <Label
+        text="Tip a Farmer"
+        color="#fff"
+        fontSize="16"
+        fontWeight="bold"
+        textAlignment="center" />
+
+</StackLayout>
+
+<!-- Plant a Tree -->
+<StackLayout
+    col="1"
+    padding="16"
+    backgroundColor="#3A8C4E"
+    borderRadius="10"
+    horizontalAlignment="stretch"
+    verticalAlignment="center"
+    width="48%"
+    @tap="plantTreeNav">
+
+    <Label
+        text="Plant a Tree"
+        color="#fff"
+        fontSize="16"
+        fontWeight="bold"
+        textAlignment="center" />
+
+</StackLayout>
+
+</GridLayout>
+
+
+
+
+
+
+
+
+</StackLayout>
+</template>
+
+
+
+<template #footer>
+
+
+
+
+
+
+
+
+
+</template>
+</app-layout>
+</template>

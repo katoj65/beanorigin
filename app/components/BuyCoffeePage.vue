@@ -1,5 +1,5 @@
 <script>
-import ProductShowPage from './template/ProductShowPage.vue';
+import ProductShowPage from './ProductShowPage.vue';
 export default {
 components:{
 ProductShowPage
