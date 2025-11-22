@@ -88,8 +88,7 @@ class="input mb-6"
 <Button
 text="Login"
 class="btn-primary mb-4"
-@tap="navHome"
-/>
+@tap="navHome"/>
 
 </StackLayout>
 <Register v-else/>
@@ -99,8 +98,7 @@ class="btn-primary mb-4"
 <Label
 :text="screen===0?loginText:registerText"
 class="signup-link text-center"
-@tap="screens"
-/>
+@tap="screens"/>
 </StackLayout>
 </GridLayout>
 

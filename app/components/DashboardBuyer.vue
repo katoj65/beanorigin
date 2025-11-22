@@ -8,6 +8,7 @@ import SettingsPage from './SettingsPage.vue';
 import DashboardMenu from './DashboardMenu.vue';
 import NearByCafePage from './NearByCafePage.vue';
 import BuyCoffeePage from './BuyCoffeePage.vue';
+import CoffeeSubscriptionPage from './CoffeeSubscriptionPage.vue';
 
 
 export default {
@@ -65,6 +66,10 @@ this.$navigateTo(NearByCafePage);
 
 buyCoffeeNav(){
 this.$navigateTo(BuyCoffeePage);
+},
+
+subscriptionNav(){
+this.$navigateTo(CoffeeSubscriptionPage);
 }
 
 
@@ -123,10 +128,7 @@ text="Good Morning, Joshua!"
 fontSize="25"
 fontWeight="bold"
 textAlignment="right"
-color="#6B4226"
-
-
-/>
+color="#6B4226"/>
 
 <Label
 text="Order Premium"
@@ -134,8 +136,7 @@ color="#6B4226"
 fontSize="18"
 marginTop="5"
 textAlignment="right"
-fontWeight="bold"
-/>
+fontWeight="bold"/>
 
 
 <Label
@@ -144,8 +145,7 @@ color="#6B4226"
 fontSize="18"
 marginTop="0"
 textAlignment="right"
-fontWeight="bold"
-/>
+fontWeight="bold"/>
 
 </StackLayout>
 
@@ -182,9 +182,9 @@ fontWeight="bold"
 
 
 
-<StackLayout col="1" row="1" backgroundColor="white" borderRadius="14" padding="20" horizontalAlignment="center" verticalAlignment="center" width="45%" marginTop="15">
+<StackLayout col="1" row="1" backgroundColor="white" borderRadius="14" padding="20" horizontalAlignment="center" verticalAlignment="center" width="45%" marginTop="15" @tap="subscriptionNav">
 <Image src="~/assets/icon/customer-support.png" width="50" height="50" />
-<Label text="Customer Service" fontSize="14" fontWeight="bold" color="#6B4226" textAlignment="center" marginTop="10" />
+<Label text="Subscription" fontSize="14" fontWeight="bold" color="#6B4226" textAlignment="center" marginTop="10" />
 </StackLayout>
 
 

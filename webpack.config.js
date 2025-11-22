@@ -5,6 +5,9 @@ module.exports = (env) => {
 
 	// Learn how to customize:
 	// https://docs.nativescript.org/webpack
+	webpack.chainWebpack((config) => {
+    config.devServer.set('hot', true);
+  });
 
 	return webpack.resolveConfig();
 };
