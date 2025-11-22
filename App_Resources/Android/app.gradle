@@ -9,6 +9,7 @@ android {
   // ndkVersion ""
 
   defaultConfig {
+    applicationId = "org.nativescript.beanorigin"
     minSdkVersion 23
     targetSdkVersion 34
 
@@ -18,8 +19,14 @@ android {
     
     generatedDensities = []
   }
+   namespace "org.nativescript.beanorigin"
 
   aaptOptions {
     additionalParameters "--no-version-vectors"
   }
+}
+
+
+project.ext {
+  appIdentifier = "org.nativescript.beanorigin"
 }

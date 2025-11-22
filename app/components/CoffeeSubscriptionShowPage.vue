@@ -1,5 +1,6 @@
 <script>
 import AppLayout from './template/AppLayout.vue';
+import CoffeeSubscriptionCartPage from './CoffeeSubscriptionCartPage.vue';
 export default {
 components:{
 AppLayout,  
@@ -16,17 +17,22 @@ flavor:'Floral aroma with citrus notes, smooth chocolate finish.',
 farmer_story:'Farmer Joshua has been growing coffee in the highlands of Uganda for over 15 years. His farm focuses on sustainable practices and high-quality Arabica beans.',
 qtty:1,
 tax:0,
-delivery:2000,
+delivery_fee:2000,
 sub_total:200000,
+discount:0,
 total:202000,
-
 
 
 },
 
+}},
+
+
 
 methods:{
-
+navCart(){
+this.$navigateTo(CoffeeSubscriptionCartPage);
+}
 }
 
 
@@ -34,7 +40,6 @@ methods:{
 
 
 
-}}
 
 
 
@@ -60,7 +65,7 @@ methods:{
 
 
 
-<StackLayout marginBottom="20" backgroundColor="#fffaf3" padding="0">
+<StackLayout marginBottom="17" backgroundColor="#fffaf3" padding="0">
 <Label text="Your Weekly Plan"
 fontSize="25"
 fontWeight="bold"
@@ -174,7 +179,7 @@ marginBottom="4" />
 
 
 
-<Button class="btn-buy fas icon"  backgroundColor="#6B4226" color="white" marginTop="5">
+<Button class="btn-buy fas icon"  backgroundColor="#6B4226" color="white" marginTop="5" @tap="navCart">
 <FormattedString>
 <!-- <Span  text.decode="&#xf07a;" class="fas icon" style="padding-right:10px;"/> -->
 <!-- icon -->
