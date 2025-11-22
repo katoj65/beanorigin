@@ -56,8 +56,8 @@ this.$navigateTo(CoffeeSubscriptionShowPage);
         fontWeight="bold"
         color="#3A2E2A" 
         marginBottom="12" 
-        textAlignment="center"
-        horizontalAlignment="center" />
+        textAlignment="left"
+        horizontalAlignment="left" />
 </StackLayout>
 
 
