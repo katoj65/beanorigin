@@ -52,7 +52,7 @@ this.$navigateTo(CoffeeSubscriptionShowPage);
 <StackLayout>
     <Label 
         text="Choose Your Plan Today" 
-        fontSize="25" 
+        fontSize="20" 
         fontWeight="bold"
         color="#3A2E2A" 
         marginBottom="12" 
@@ -63,17 +63,17 @@ this.$navigateTo(CoffeeSubscriptionShowPage);
 
 <GridLayout columns="*, *, *, *" rows="auto" columnGap="20">
 <StackLayout col="0" horizontalAlignment="left">
-<Label text="Daily" fontSize="16" fontWeight="bold" color="#6B4226" />
+<Label text="Daily" fontSize="17" fontWeight="bold" color="#6B4226" />
 </StackLayout>
 
 
 <StackLayout col="1" horizontalAlignment="left">
-<Label text="Weekly" fontSize="16" fontWeight="bold" color="#A97458" />
+<Label text="Weekly" fontSize="17" fontWeight="bold" color="#A97458" />
 </StackLayout>
 
 
 <StackLayout col="2" horizontalAlignment="left">
-<Label text="Monthly" fontSize="16" fontWeight="bold" color="#A97458" />
+<Label text="Monthly" fontSize="17" fontWeight="bold" color="#A97458" />
 </StackLayout>
 
 </GridLayout>
@@ -92,7 +92,7 @@ rows="auto"
 backgroundColor="#FFFFFF"
 borderRadius="16"
 padding="16"
-marginBottom="16"
+marginBottom="10"
  v-for="(k,key) in 10" :key="key"
  @tap="showPageNav"
 >
@@ -129,7 +129,7 @@ loadMode="async" />
 <StackLayout col="1" row="1" verticalAlignment="center">
 <Label 
 text="Name of the Coffee" 
-fontSize="20"
+fontSize="17"
 fontWeight="bold"
 color="#1A1A1A"
 marginBottom="6"
@@ -146,13 +146,13 @@ textWrap="true" />
 <Label 
 col="0"
 text="$9.99" 
-fontSize="24"
+fontSize="17"
 fontWeight="bold"
 color="#6B4226"
 marginRight="4" />
 <Label 
 col="1"
-text="/ Daily" 
+text="  Daily" 
 fontSize="14"
 color="#9CA3AF"
 verticalAlignment="bottom"
@@ -175,7 +175,7 @@ marginBottom="4" />
 backgroundColor="#FFFFFF"
 borderRadius="12"
 padding="20"
-marginBottom="16">
+marginBottom="10">
 <Label 
 text="✓ All plans include 7-day free trial" 
 fontSize="14"

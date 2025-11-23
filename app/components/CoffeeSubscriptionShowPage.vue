@@ -12,10 +12,9 @@ id:1,
 name:'Nescafe Classic Coffee',
 description:'This coffee supported 1 farmer and offset 2kg of CO₂. Premium quality with fruity notes.',
 qtty:'250g',
-price:'$18',
+price:'Shs. 20,000',
 flavor:'Floral aroma with citrus notes, smooth chocolate finish.',
 farmer_story:'Farmer Joshua has been growing coffee in the highlands of Uganda for over 15 years. His farm focuses on sustainable practices and high-quality Arabica beans.',
-qtty:1,
 tax:0,
 delivery_fee:2000,
 sub_total:200000,
@@ -67,7 +66,7 @@ this.$navigateTo(CoffeeSubscriptionCartPage);
 
 <StackLayout marginBottom="17" backgroundColor="#fffaf3" padding="0">
 <Label text="Your Weekly Plan"
-fontSize="25"
+fontSize="20"
 fontWeight="bold"
 color="#3A2E2A"
 marginBottom="12"
@@ -87,8 +86,60 @@ class="product-title" />
 
 <!-- Product Info -->
 <Label :text="product.name" class="product-title" marginTop="20"/>
-<Label :text="product.price+'/'+product.qtty" class="product-price" />
+
+<Label class="product-price">
+<formatted-string>
+<Span :text="product.price+' '" />
+<Span  text=" | " class="fas icon" style="padding-right:20px;" color="#fffff" fontSize="20"/>
+<Span :text="' '+product.qtty" color="#6B4226" paddingLeft="20"/>
+</formatted-string>
+</Label>
+
 <Label :text="product.description" class="product-description" textWrap="true" padding="20"/>
+
+
+
+
+
+<!-- Two Buttons Section -->
+<GridLayout columns="*, *" columnSpacing="12" padding="0" marginBottom="10">
+    
+    <!-- Items Button -->
+    <Label 
+        col="0"
+        text="1 Items"
+        backgroundColor="#FFFFFF"
+        color="#6B4226"
+        fontSize="16"
+        fontWeight="bold"
+        borderRadius="12"
+        padding="16"
+        textAlignment="center"
+        verticalAlignment="center"
+        tap="onItemsTap"
+        width="90%"
+        marginRight="2%"
+     />
+    
+    <!-- Delivery Date Button -->
+    <Label 
+        col="1"
+        text="Delivery Date"
+        backgroundColor="#FFFFFF"
+        color="#6B4226"
+        fontSize="16"
+        fontWeight="bold"
+        borderRadius="12"
+        padding="16"
+        textAlignment="center"
+        verticalAlignment="center"
+        tap="onDeliveryDateTap"
+         width="90%" 
+         marginLeft="3%" />
+    
+</GridLayout>
+
+
 
 
 <StackLayout class="section" padding="20" @tap="farmerStoryNav">
@@ -130,7 +181,7 @@ marginBottom="20" marginTop="15">
 <!-- Subtotal -->
 <GridLayout columns="*, auto" marginBottom="12">
 <Label col="0" text="Subtotal" fontSize="14" color="black"/>
-<Label col="1" text="Shs. 200,000" fontSize="14"/>
+<Label col="1" text="Shs. 20,000" fontSize="14"/>
 </GridLayout>
 
 
@@ -161,11 +212,18 @@ marginBottom="20" marginTop="15">
 <Label col="1"text="Shs. 2,000" fontSize="14"/>
 </GridLayout>
 
+
+<!-- Delivery Time -->
+<GridLayout columns="*, auto" marginBottom="16">
+<Label  col="0" text="Delivery Time" fontSize="14" color="black"/>
+<Label col="1"text="Every Monday" fontSize="14"/>
+</GridLayout>
+
 <!-- Total -->
 <GridLayout columns="*, auto" marginBottom="12">
 <Label col="0" text="Total" fontSize="18" fontWeight="bold"/>
 <GridLayout col="1" columns="auto, auto">
-<Label col="0" text="Shs. 220,000" fontSize="17" fontWeight="bold" color="#6B4226"
+<Label col="0" text="Shs. 22,000" fontSize="17" fontWeight="bold" color="#6B4226"
 marginRight="4" />
 <Label col="1" text="" fontSize="14" color="#6B7280" verticalAlignment="bottom"
 marginBottom="4" />
