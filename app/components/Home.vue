@@ -2,20 +2,31 @@
 import Dashboard from './Dashboard.vue';
 import Register from './template/Register.vue';
 import DashboardBuyer from './DashboardBuyer.vue';
+import AuthenticationService from '../service/AuthenticationService.js';
+
+
 export default {
 components:{
 Register
 },
 
 data(){return{
+//screen control
 screen:0,
 loginText:"Don't have an account? Sign Up",
 registerText:'Already have an account? Login',
+isLoading:false,
+//form data
+form:{
+email:'katoj65@gmail.com',
+password:'0987654321',
+},
+
+error:'',
 
 }},
 
 methods: {
-
 
 navHome(){
 this.$navigateTo(DashboardBuyer);
@@ -31,7 +42,65 @@ this.screen=0;
 
 
 
+},
+
+
+//login service
+async logInService(){
+this.error='';
+
+if(this.form.email==='' || this.form.password===''){
+this.error='Fill in your email and password.';
+return;
+
+}else{
+
+try{
+
+this.isLoading=true;
+const auth=new AuthenticationService();
+const response = await auth.login(this.form.email,this.form.password);
+
+
+
+if(response.statusCode===400){
+this.error='Invalid email or password. Please try again.';
+}else if(response.statusCode===200){
+console.log(response);
 }
+
+
+
+
+}catch(error){
+console.log(error);
+this.error='An error occurred during login. Please try again.';
+}finally{
+this.isLoading=false;
+}
+
+
+
+
+
+
+
+
+
+
+}
+
+}
+
+
+
+
+
+
+
+
+
+
 },
 
 
@@ -67,14 +136,18 @@ color: #f0e68c;"/>
 <!-- Email -->
 
 
-<StackLayout v-if="screen===0">
+<!-- Error Message -->
 
+
+<StackLayout v-if="screen===0">
+<Label v-if="error" :text="error" color="white" textAlignment="center" padding="5" fontSize="14"/>
 <TextField
 hint="Email"
 keyboardType="email"
 autocorrect="false"
 autocapitalizationType="none"
 class="input mb-4"
+v-model="form.email"
 />
 
 <!-- Password -->
@@ -82,13 +155,17 @@ class="input mb-4"
 hint="Password"
 secure="true"
 class="input mb-6"
+v-model="form.password"
 />
+
+
+
 
 <!-- Login Button -->
 <Button
 text="Login"
 class="btn-primary mb-4"
-@tap="navHome"/>
+@tap="logInService"/>
 
 </StackLayout>
 <Register v-else/>
@@ -113,7 +190,7 @@ background-color: #6B4226; /* Coffee brown background */
 font-size: 27;
 font-weight: bold;
 color: #ffffff;
-margin-top: 12;
+margin-top: 0;
 text-align: center;
 }
 .input {
@@ -142,4 +219,13 @@ color: #f0e68c;
 .mb-10 { margin-bottom: 40; }
 .mt-10 { margin-top: 40; }
 .p-6 { padding: 24; }
+.error{
+color: #ff0000;
+
+}
+
+
+
+
 </style>
+

@@ -1,5 +1,85 @@
 <script>
+import AuthenticationService from '../../service/AuthenticationService.js'; 
+import * as ApplicationSettings from '@nativescript/core/application-settings';
 export default {
+data(){
+return{
+form:{
+email:'katoj65@gmail.com',
+password:'0987654321',
+fname:'joshua',
+lname:'kato',
+},
+
+isLoading:false,
+error:'',
+
+
+
+
+
+
+}
+},
+
+methods:{
+async register(){
+this.error='';
+if(this.form.email==='' || this.form.password==='' || this.form.fname==='' || this.form.lname===''){
+this.error='Please fill in all required fields.';
+return;
+}else{
+
+try{
+
+this.isLoading=true;
+const auth=new AuthenticationService();
+const response = await auth.register(this.form.fname,this.form.lname,this.form.email,this.form.password);
+
+//registration failed
+if(response.statusCode===400){
+//successful registration
+this.error='Registration failed. Please try again.';
+}else if(response.statusCode===422){
+//email exists
+this.error='Email already exists.';
+}
+else if(response.statusCode===200){
+//successful registration
+const loggedInUser = {
+fname:this.form.fname,
+lname:this.form.lname,
+email:this.form.email
+};
+
+//store user profile locally
+const user=JSON.stringify(loggedInUser);
+ApplicationSettings.setString('createProfile', user);
+this.isLoading=false;
+
+//console.log(response);
+
+
+
+
+}
+}catch(error){
+this.error='An error occurred during registration. Please try again.';
+}finally{
+this.isLoading=false;
+}
+
+
+
+
+}
+
+}
+
+
+
+
+}
 
 }
 </script>
@@ -7,12 +87,17 @@ export default {
 <template>
 <StackLayout row="1">
 
+<Label v-if="error" :text="error" textAlignment="center" color="white" fontSize="15" padding="10"/>
+
+
+
 <!-- Email -->
 <TextField
 hint="First Name"
 autocorrect="false"
 autocapitalizationType="none"
 class="input mb-4"
+v-model="form.fname"
 />
 
 <!-- Email -->
@@ -21,6 +106,7 @@ hint="Last Name"
 autocorrect="false"
 autocapitalizationType="none"
 class="input mb-4"
+v-model="form.lname"
 />
 
 
@@ -33,6 +119,7 @@ keyboardType="email"
 autocorrect="false"
 autocapitalizationType="none"
 class="input mb-4"
+v-model="form.email"
 />
 
 <!-- Password -->
@@ -40,12 +127,14 @@ class="input mb-4"
 hint="Password"
 secure="true"
 class="input mb-6"
+v-model="form.password"
 />
 
 <!-- Login Button -->
 <Button
 text="Register"
 class="btn-primary mb-4"
+@tap="register"
 
 />
 
